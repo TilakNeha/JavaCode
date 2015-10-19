@@ -279,4 +279,42 @@ public class BinaryTree {
 			}
 		}
 	}
+
+	public boolean isIndentical(Node root2) {
+		return isIdentical(root,root2);
+	}
+	
+	private boolean isIdentical(Node root1, Node root2) {
+		if (root1 == null && root2 == null) {
+			return true;
+		} else if (root1 == null && root2 != null) {
+			return false;
+		} else if (root1 != null && root2 == null) {
+			return false;
+		}
+		
+		if (root1.data != root2.data) {
+			return false;
+		}
+		return isIdentical(root1.left,root2.left) && isIdentical(root1.right,root2.right);
+	}
+	
+	public boolean isSubtree(Node root2) {
+		return isSubtree(root,root2);
+	}
+	
+	private boolean isSubtree(Node root1, Node root2) {
+		if (root1 == null && root2 == null) {
+			return true;
+		} else if (root1 == null && root2 != null) {
+			return false;
+		} else if (root1 != null && root2 == null) {
+			return true;
+		}
+		
+		if (root1.data != root2.data) {
+			return isSubtree(root1.left,root2) || isSubtree(root1.right,root2);
+		}
+		return isSubtree(root1.left,root2.left) && isIdentical(root1.right,root2.right);
+	}
 }

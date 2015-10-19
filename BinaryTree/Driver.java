@@ -56,5 +56,17 @@ public class Driver {
 		}
 		
 		bt2.levelWisePrint();
+		
+		BinaryTree bt3 = new BinaryTree();
+		bt3.root = new Node(3);
+		bt3.root.left = new Node(2);
+		bt3.root.right = new Node(1);
+		bt3.root.right.left = new Node(10);
+		
+		if (bt.isSubtree(bt3.root)) {
+			System.out.println("It is a sub-tree.");
+		} else {
+			System.out.println("It is not a sub-tree.");
+		}
 	}
 }
