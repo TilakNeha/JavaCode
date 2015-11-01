@@ -11,7 +11,7 @@ public class MiddleElement {
 	
 	public static int findMidElement(int[] arr) {
 		int size = arr.length;
-		int[] leftMax = new int[size]();
+		int[] leftMax = new int[size];
 		int[] rightMin = new int[size];
 		
 		int min = Integer.MAX_VALUE;
