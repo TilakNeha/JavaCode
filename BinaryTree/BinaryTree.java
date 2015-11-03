@@ -343,4 +343,18 @@ public class BinaryTree {
 		}		
 		return true;
 	}
+	
+	public boolean isMaxHeap() {
+		return isMaxHeap(root,Integer.MAX_VALUE);
+	}
+	
+	private boolean isMaxHeap(Node  n,int max) {
+		if (n == null) return true;
+		if (n.data > max) return false;
+		return isMaxHeap(n.left,n.data) && isMaxHeap(n.right,n.data);		
+	}
+	
+	public boolean isHeap() {
+		return isComplete() && isMaxHeap();
+	}
 }
