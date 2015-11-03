@@ -317,4 +317,30 @@ public class BinaryTree {
 		}
 		return isSubtree(root1.left,root2.left) && isIdentical(root1.right,root2.right);
 	}
+
+	public boolean isComplete() {
+		if (root == null) return true; // Empty tree is complete.
+		
+		boolean flag = false;
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		
+		while (!q.isEmpty()) {
+			Node current = q.remove();
+			if (current.left!= null && current.right !=null) {
+				if (flag == true) return false;
+				q.add(current.left);
+				q.add(current.right);
+			} else if (current.left == null && current.right != null) {
+				return false;
+			} else if (current.left != null && current.right == null) {
+				if (flag) return false;
+				q.add(current.left);
+				flag = true;
+			} else {
+				flag = true;
+			}
+		}		
+		return true;
+	}
 }
